@@ -1,0 +1,22 @@
+#!/bin/sh
+
+EPOCH="$1"
+
+case "$EPOCH" in
+    ''|*[!0-9]*)
+        echo "Invalid epoch"
+        exit 2
+        ;;
+esac
+
+if [ "$EPOCH" -lt 1700000000 ]; then
+    echo "Epoch too old"
+    exit 2
+fi
+
+/usr/bin/timedatectl set-ntp false
+/usr/bin/date -u -s "@$EPOCH"
+
+if ping -I eth0 -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; then
+    /usr/bin/timedatectl set-ntp true
+fi

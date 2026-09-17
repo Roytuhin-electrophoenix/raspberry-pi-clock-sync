@@ -1,0 +1,1 @@
+rpi4test ALL=(root) NOPASSWD: /usr/local/sbin/rpi4test-set-time *
