@@ -1,0 +1,16 @@
+# Never commit private SSH keys
+id_ed25519
+id_ed25519.*
+*.pem
+*.key
+
+# OS/editor files
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Logs/temp files
+*.log
+*.tmp
