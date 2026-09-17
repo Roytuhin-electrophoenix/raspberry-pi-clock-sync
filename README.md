@@ -58,6 +58,12 @@ The final design uses two time sources:
 
 ---
 
+<p align="center">
+  <img src="docs/clock-sync-architecture.png"
+       alt="Raspberry Pi clock synchronization architecture"
+       width="900">
+</p>
+
 ## Repository structure
 
 ```text
