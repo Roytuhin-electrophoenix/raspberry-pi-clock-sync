@@ -1,6 +1,29 @@
-# Raspberry Pi 4 Clock Synchronization Using Internet NTP or a Windows Laptop
+# Raspberry Pi Clock Synchronization Using Internet NTP or a Windows Laptop  
 
-A reproducible dual-source clock synchronization setup for a Raspberry Pi 4 without a battery-backed RTC.
+A dual-source clock synchronization setup for Raspberry Pi systems without a reliable battery-backed real-time clock.
+
+This implementation was developed and physically tested on a Raspberry Pi 4 running Raspberry Pi OS. The same approach should also work on Raspberry Pi 3 and Raspberry Pi 5 systems using current Raspberry Pi OS, provided the required network interfaces and system services are available.
+
+## Compatibility
+
+| Platform | Status | Notes |
+|---|---|---|
+| Raspberry Pi 3B / 3B+ | Expected compatible | Uses the same Linux/systemd/SSH approach. Network interface availability should be checked. |
+| Raspberry Pi 4 | ✅ Tested | This is the platform used during development and validation. |
+| Raspberry Pi 5 | Expected compatible | Same software approach works, although Raspberry Pi 5 also provides hardware RTC support that can be used instead if desired. |
+
+### Software requirements
+
+The setup assumes:
+
+- Raspberry Pi OS using `systemd`
+- `timedatectl`
+- SSH
+- NetworkManager / `nmcli`
+- Wi-Fi interface available as `wlan0`
+- Internet interface available as `eth0` for the current scripts
+
+If interface names differ, the scripts must be adjusted accordingly.
 
 This repository documents the exact approach used for the rpi4test gateway:
 
